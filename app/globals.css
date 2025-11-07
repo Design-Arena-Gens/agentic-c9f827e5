@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --glass-bg: rgba(15, 23, 42, 0.45); /* slate-900 with alpha */
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-highlight: rgba(34, 211, 238, 0.25); /* cyan-400 */
+}
+
+/* Smooth rendering */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-attachment: fixed;
+}
+
+/* Reusable glass style */
+.glass {
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.06) 0%,
+      rgba(255, 255, 255, 0.02) 100%
+    ),
+    var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 10px 30px rgba(2, 6, 23, 0.5),
+    0 0 0 1px rgba(34, 211, 238, 0.06);
+  backdrop-filter: blur(16px) saturate(120%);
+}
+
+.glow-ring {
+  box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.24), 0 0 40px rgba(34, 211, 238, 0.16);
+}
+
+/* Headline subtle gradient text */
+.title-gradient {
+  background: linear-gradient(180deg, #e2e8f0 0%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.pill-toggle {
+  @apply relative inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-xs font-medium tracking-wide transition-all duration-200;
+  background: rgba(15, 23, 42, 0.35);
+  border-color: rgba(148, 163, 184, 0.25);
+}
+
+.pill-toggle:hover {
+  @apply -translate-y-0.5;
+  box-shadow: 0 4px 24px rgba(34, 211, 238, 0.25);
+  border-color: rgba(34, 211, 238, 0.4);
+}
+
+.pill-active {
+  background: linear-gradient(
+      180deg,
+      rgba(34, 211, 238, 0.16) 0%,
+      rgba(34, 211, 238, 0.08) 100%
+    ),
+    rgba(15, 23, 42, 0.45);
+  border-color: rgba(34, 211, 238, 0.5);
+}
+
+.textarea-large::placeholder {
+  color: rgb(148 163 184 / 0.7);
+}
